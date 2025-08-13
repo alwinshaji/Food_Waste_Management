@@ -289,7 +289,7 @@ with tab3:
             claim_recv_name = st.selectbox("Receiver", recvs_df["Name"].tolist())
             claim_recv_id = int(recvs_df.loc[recvs_df["Name"] == claim_recv_name, "Receiver_ID"].iloc[0])
             claim_status = st.selectbox("Status", ["Pending", "Completed", "Cancelled"])
-            claim_time = st.datetime_input("Timestamp", value=datetime.now())
+            claim_time = st.date_input("Timestamp", value=datetime.now())
             if st.button("Create Claim"):
                 run_exec("""
                     INSERT INTO Claims (Food_ID, Receiver_ID, Status, Timestamp)
